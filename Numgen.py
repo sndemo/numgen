@@ -1,5 +1,8 @@
+import tensorflow as tf
 from keras.models import model_from_json
 import numpy as np
+
+graph = tf.get_default_graph()
 
 class Numgen(object):
     def __init__(self):
@@ -15,4 +18,5 @@ class Numgen(object):
         print("Numgen model loaded from disk.")
 
     def predict(self,X,features_names):
-        return self.model.predict(X)
+        with graph.as_default():
+            return self.model.predict(X)
