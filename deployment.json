@@ -1,0 +1,53 @@
+{
+    "apiVersion": "machinelearning.seldon.io/v1alpha2",
+    "kind": "SeldonDeployment",
+    "metadata": {
+        "labels": {
+            "app": "seldon"
+        },
+        "name": "numgen-deployment"
+    },
+    "spec": {
+        "annotations": {
+            "project_name": "Number generator",
+            "deployment_version": "0.0"
+        },
+        "name": "numgen-deployment",
+        "oauth_key": "oauth-key",
+        "oauth_secret": "oauth-secret",
+        "predictors": [
+            {
+                "componentSpecs": [{
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "sndemo/numgen:latest",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "numgen",
+                                "resources": {
+                                    "requests": {
+                                        "memory": "1Mi"
+                                    }
+                                }
+                            }
+                        ],
+                        "terminationGracePeriodSeconds": 20
+                    }
+                }],
+                "graph": {
+                    "children": [],
+                    "name": "numgen",
+                    "endpoint": {
+                        "type" : "REST"
+                    },
+                    "type": "MODEL"
+                },
+                "name": "numgen",
+                "replicas": 1,
+                "annotations": {
+                "predictor_version" : "0.0"
+                }
+            }
+        ]
+    }
+}
