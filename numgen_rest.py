@@ -1,8 +1,8 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
-API_HTTP="seldonapi.aws.s12n.tk"
-API_HTTP="localhost:5000"
+#API_HTTP="seldonapi.aws.s12n.tk"
+API_HTTP="localhost:8080"
 
 def get_token():
     payload = {'grant_type': 'client_credentials'}
