@@ -14,5 +14,6 @@ class Numgen(object):
         self.model.load_weights("numgen_model.h5")
 	self.model._make_predict_function()
         print("Numgen model loaded from disk.")
+
     def predict(self,X,features_names):
 	return self.model.predict(X)
