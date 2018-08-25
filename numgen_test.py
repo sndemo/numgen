@@ -1,7 +1,7 @@
+import tensorflow as tf
 import numpy as np
-import importlib
+from Numgen import Numgen
 
-importlib.import_module("Numgen")
 numgen = Numgen()
 
 print('Prediction for next number of 20,21,22,23,24', numgen.predict(np.array([[[20],[21],[22],[23],[24]]]), None))
