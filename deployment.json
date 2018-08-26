@@ -22,7 +22,7 @@
                         "containers": [
                             {
                                 "image": "sndemo/numgen:latest",
-                                "imagePullPolicy": "IfNotPresent",
+                                "imagePullPolicy": "Always",
                                 "name": "numgen",
                                 "resources": {
                                     "requests": {
